@@ -30,8 +30,9 @@ public class StudentController {
     }
 
     @PutMapping("/getStudent/{studentId}")
-    public Optional<Student> getStudentById(@PathVariable Long studentId) {
-        return studentServiceImp.getByStudentId(studentId);
+    public ResponseEntity<Response> getStudentById(@PathVariable Long studentId) {
+        //return studentServiceImp.getByStudentId(studentId);
+        return new ResponseEntity(new Response(true,"Student Details.",studentServiceImp.getByStudentId(studentId),null,null,null), HttpStatus.OK);
     }
 
     @GetMapping("/getAll")

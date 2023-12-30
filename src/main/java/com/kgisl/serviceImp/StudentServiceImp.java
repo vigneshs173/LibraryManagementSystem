@@ -1,5 +1,7 @@
 package com.kgisl.serviceImp;
 
+import com.kgisl.exceptionHandling.StudentNotActiveInDatabase;
+import com.kgisl.exceptionHandling.StudentNotFoundException;
 import com.kgisl.request.AddBookAndStudent;
 import com.kgisl.model.Student;
 import com.kgisl.repository.StudentRepository;
@@ -23,8 +25,15 @@ public class StudentServiceImp {
         return studentDTO;
     }
 
-    public Student getByStudentId(Long studentId) {
-        return studentRepository.getByStudentId(studentId);
+    public StudentDTO getByStudentId(Long studentId) {
+
+        Student student = studentRepository.getByStudentId(studentId);
+        if(student == null)
+            throw new StudentNotFoundException("STUDENT NOT EXIST");
+        else if(student.getIsActive() == 0)
+            throw new StudentNotActiveInDatabase("STUDENT NOT ACTIVE");
+        else
+            return studentToStudentDTO(student);
     }
     public StudentDTO insertStudent(AddBookAndStudent addBookAndStudent) {
         Student student = addBookAndStudent.getStudent();

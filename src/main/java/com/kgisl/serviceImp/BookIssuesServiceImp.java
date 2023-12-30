@@ -1,6 +1,7 @@
 package com.kgisl.serviceImp;
 
 import com.kgisl.exceptionHandling.*;
+import com.kgisl.repository.StudentRepository;
 import com.kgisl.request.IssueRequest;
 import com.kgisl.request.ReturnRequest;
 import com.kgisl.model.BookIssues;
@@ -26,6 +27,9 @@ public class BookIssuesServiceImp {
 
     @Autowired
     BookIssueRepository bookIssuesRepository;
+
+    @Autowired
+    StudentRepository studentRepository;
 
     public BookIssues issueBook(BookIssues issue) {
         return bookIssuesRepository.save(issue);
@@ -61,7 +65,7 @@ public class BookIssuesServiceImp {
             throw new InvalidStudentIdAndBookId("Invalid Student Id or Book Id");
         }
 
-        Student student = studentServiceImp.getByStudentId(issueRequest.getStudentId());
+        Student student = studentRepository.getByStudentId(issueRequest.getStudentId());
         if (student == null) {
             throw new StudentNotFoundException("Student is not exist in database");
         }
