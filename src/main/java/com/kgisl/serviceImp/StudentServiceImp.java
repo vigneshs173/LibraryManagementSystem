@@ -6,13 +6,14 @@ import com.kgisl.request.AddBookAndStudent;
 import com.kgisl.model.Student;
 import com.kgisl.repository.StudentRepository;
 import com.kgisl.response.StudentDTO;
+import com.kgisl.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class StudentServiceImp {
+public class StudentServiceImp implements StudentService {
 
     @Autowired
     StudentRepository studentRepository;
@@ -34,6 +35,9 @@ public class StudentServiceImp {
             throw new StudentNotActiveInDatabase("STUDENT NOT ACTIVE");
         else
             return studentToStudentDTO(student);
+
+
+
     }
     public StudentDTO insertStudent(AddBookAndStudent addBookAndStudent) {
         Student student = addBookAndStudent.getStudent();

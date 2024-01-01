@@ -2,12 +2,12 @@ package com.kgisl.serviceImp;
 
 import com.kgisl.model.LibraryBooks;
 import com.kgisl.repository.LibraryBooksRepository;
-import com.kgisl.service.AllService;
+import com.kgisl.service.LibraryBookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class LibraryBooksServiceImp {
+public class LibraryBooksServiceImp implements LibraryBookService {
 
     @Autowired
     private LibraryBooksRepository libraryBooksRepository;

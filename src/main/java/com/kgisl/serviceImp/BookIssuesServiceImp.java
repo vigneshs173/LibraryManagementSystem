@@ -8,6 +8,7 @@ import com.kgisl.model.BookIssues;
 import com.kgisl.model.LibraryBooks;
 import com.kgisl.model.Student;
 import com.kgisl.repository.BookIssueRepository;
+import com.kgisl.service.BookIssueService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,7 @@ import java.util.List;
 
 
 @Service
-public class BookIssuesServiceImp {
+public class BookIssuesServiceImp implements BookIssueService {
 
     @Autowired
     StudentServiceImp studentServiceImp;
