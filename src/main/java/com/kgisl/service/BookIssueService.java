@@ -13,7 +13,7 @@ import java.util.List;
 public interface BookIssueService {
 
 
-    public BookIssues issueBook(BookIssues issue);
+    BookIssues issueBook(BookIssues issue);
 
     public BookIssues updateIssue(BookIssues issue);
     public BookIssues getByIssueId(Long issueId);
