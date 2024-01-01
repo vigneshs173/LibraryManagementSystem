@@ -55,4 +55,12 @@ public class StudentServiceImp {
                 .map(this::studentToStudentDTO)
                 .toList();
     }
+
+    public List<StudentDTO> getAllStudentsDemoo() {
+        return studentRepository.getByIsActive(1).stream()
+                .map(this::studentToStudentDTO)
+                .toList();
+    }
+
+
 }
