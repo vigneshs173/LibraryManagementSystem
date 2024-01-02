@@ -24,21 +24,52 @@ public class StudentController {
     @Autowired
     StudentRepository studentRepository;
 
+//    @PostMapping("/insert")
+//    public ResponseEntity<Response> insert(@RequestBody AddBookAndStudent addBookAndStudent) {
+//        return new ResponseEntity(new Response(true,"Student inserted successfully.",studentServiceImp.insertStudent(addBookAndStudent),null,null,null), HttpStatus.OK);
+//    }
+
+
+
+
     @PostMapping("/insert")
-    public ResponseEntity<Response> insert(@RequestBody AddBookAndStudent addBookAndStudent) {
-        return new ResponseEntity(new Response(true,"Student inserted successfully.",studentServiceImp.insertStudent(addBookAndStudent),null,null,null), HttpStatus.OK);
+    public ResponseEntity<Response> insertS(@RequestBody Student student) {
+        return new ResponseEntity(new Response(true,"Student inserted successfully.",studentServiceImp.insertStudent(student),null,null,null), HttpStatus.OK);
     }
 
-    @PutMapping("/getStudent/{studentId}")
+    @GetMapping("/getStudent/{studentId}")
     public ResponseEntity<Response> getStudentById(@PathVariable Long studentId) {
         //return studentServiceImp.getByStudentId(studentId);
         return new ResponseEntity(new Response(true,"Student Details.",studentServiceImp.getByStudentId(studentId),null,null,null), HttpStatus.OK);
+    }
+
+
+    @PostMapping("/studentParam")
+    public ResponseEntity<Response> param(@RequestParam Long studentId,@RequestParam String firstName, @RequestParam String email) {
+
+        Student student = new Student();
+        student.setStudentId(studentId);
+        student.setFirstName(firstName);
+        student.setEmail(email);
+        return new ResponseEntity(new Response(true,"Student inserted successfully.",studentServiceImp.insertStudent(student),null,null,null), HttpStatus.OK);
+    }
+
+    @PostMapping("/studentHeader")
+    public ResponseEntity<Response> header(@RequestHeader Long studentId,@RequestHeader String firstName, @RequestHeader String email) {
+        //return studentServiceImp.getByStudentId(studentId);
+        Student student = new Student();
+        student.setStudentId(studentId);
+        student.setFirstName(firstName);
+        student.setEmail(email);
+        return new ResponseEntity(new Response(true,"Student inserted successfully.",studentServiceImp.insertStudent(student),null,null,null), HttpStatus.OK);
     }
 
     @GetMapping("/getAll")
     public ResponseEntity<StudentDTO> getAllStudents() {
         return new ResponseEntity(new Response(true,"List of all students.",null,studentServiceImp.getAllStudents(),null,null), HttpStatus.OK);
     }
+
+
 
     @PutMapping("/deleteStudent/{studentId}")
     public Student deleteByStudentId(@PathVariable Long studentId) {

@@ -35,8 +35,8 @@ public class StudentServiceImp {
         else
             return studentToStudentDTO(student);
     }
-    public StudentDTO insertStudent(AddBookAndStudent addBookAndStudent) {
-        Student student = addBookAndStudent.getStudent();
+    public StudentDTO insertStudent(Student student) {
+        //Student student1 = studentRepository.getStudent();
         return studentToStudentDTO(studentRepository.save(student));
     }
 
