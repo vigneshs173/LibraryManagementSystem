@@ -39,8 +39,8 @@ public class StudentServiceImp implements StudentService {
 
 
     }
-    public StudentDTO insertStudent(AddBookAndStudent addBookAndStudent) {
-        Student student = addBookAndStudent.getStudent();
+    public StudentDTO insertStudent(Student student) {
+        //Student student = addBookAndStudent.getStudent();
         return studentToStudentDTO(studentRepository.save(student));
     }
 
@@ -58,5 +58,9 @@ public class StudentServiceImp implements StudentService {
         return studentRepository.getByIsActive(1).stream()
                 .map(this::studentToStudentDTO)
                 .toList();
+    }
+
+    public Student insert(Student student) {
+        return studentRepository.save(student);
     }
 }
