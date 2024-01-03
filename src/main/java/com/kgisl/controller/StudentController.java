@@ -44,6 +44,7 @@ public class StudentController {
     }
 
 
+    //demo
     @PostMapping("/studentParam")
     public ResponseEntity<Response> param(@RequestParam Long studentId,@RequestParam String firstName, @RequestParam String email) {
 
@@ -54,6 +55,7 @@ public class StudentController {
         return new ResponseEntity(new Response(true,"Student inserted successfully.",studentServiceImp.insertStudent(student),null,null,null), HttpStatus.OK);
     }
 
+    //demo
     @PostMapping("/studentHeader")
     public ResponseEntity<Response> header(@RequestHeader Long studentId,@RequestHeader String firstName, @RequestHeader String email) {
         //return studentServiceImp.getByStudentId(studentId);
@@ -71,6 +73,7 @@ public class StudentController {
 
 
 
+    //demo
     @PutMapping("/deleteStudent/{studentId}")
     public Student deleteByStudentId(@PathVariable Long studentId) {
         return studentServiceImp.deleteStudent(studentId);
