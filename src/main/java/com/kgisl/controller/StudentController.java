@@ -30,8 +30,6 @@ public class StudentController {
 //    }
 
 
-
-
     @PostMapping("/insert")
     public ResponseEntity<Response> insertS(@RequestBody Student student) {
         return new ResponseEntity(new Response(true,"Student inserted successfully.",studentServiceImp.insertStudent(student),null,null,null), HttpStatus.OK);
