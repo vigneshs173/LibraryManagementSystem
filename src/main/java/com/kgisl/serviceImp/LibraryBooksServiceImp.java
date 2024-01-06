@@ -2,9 +2,10 @@ package com.kgisl.serviceImp;
 
 import com.kgisl.model.LibraryBooks;
 import com.kgisl.repository.LibraryBooksRepository;
-import com.kgisl.service.AllService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class LibraryBooksServiceImp {
@@ -23,4 +24,9 @@ public class LibraryBooksServiceImp {
     public LibraryBooks addBook(LibraryBooks libraryBooks) {
         return libraryBooksRepository.save(libraryBooks);
     }
+
+    public List<LibraryBooks> getAllBooks() {
+        return libraryBooksRepository.findAll();
+    }
+
 }

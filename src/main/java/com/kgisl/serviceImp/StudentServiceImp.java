@@ -6,16 +6,18 @@ import com.kgisl.request.AddBookAndStudent;
 import com.kgisl.model.Student;
 import com.kgisl.repository.StudentRepository;
 import com.kgisl.response.StudentDTO;
+import com.kgisl.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class StudentServiceImp {
+public class StudentServiceImp implements StudentService {
 
     @Autowired
     StudentRepository studentRepository;
+
 
     public StudentDTO studentToStudentDTO(Student student){
         StudentDTO studentDTO = new StudentDTO();
@@ -24,6 +26,7 @@ public class StudentServiceImp {
         studentDTO.setEmail(student.getEmail());
         return studentDTO;
     }
+
 
     public StudentDTO getByStudentId(Long studentId) {
 

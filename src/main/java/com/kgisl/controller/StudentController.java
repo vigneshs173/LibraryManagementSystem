@@ -5,6 +5,7 @@ import com.kgisl.model.Student;
 import com.kgisl.repository.StudentRepository;
 import com.kgisl.response.Response;
 import com.kgisl.response.StudentDTO;
+import com.kgisl.service.StudentService;
 import com.kgisl.serviceImp.StudentServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,7 +20,7 @@ import java.util.Optional;
 public class StudentController {
 
     @Autowired
-    StudentServiceImp studentServiceImp;
+    StudentService studentServiceImp;
 
     @Autowired
     StudentRepository studentRepository;
