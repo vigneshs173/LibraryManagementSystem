@@ -3,6 +3,7 @@
   <object-set>
     <schema path="library_db">
       <view name="Library_System" query=""/>
+      <view name="virtual_view_name" query=""/>
     </schema>
   </object-set>
 </data>
