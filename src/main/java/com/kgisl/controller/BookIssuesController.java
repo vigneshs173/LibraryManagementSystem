@@ -58,5 +58,4 @@ public class BookIssuesController {
     public List<BookIssues> getIssuedBooksByDateAndStatus(@PathVariable LocalDate issueDate) {
         return bookIssuesServiceImp.getIssuedBooksByDateAndStatus(issueDate);
     }
-
 }
