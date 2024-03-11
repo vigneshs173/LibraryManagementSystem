@@ -20,10 +20,6 @@ public class SampleEntity {
     private Long test4;
     private String test5;
     private String test6;
-    private Long test7;
-    private String test8;
-    private String test9;
-    private Long test10;
     private String test11;
     private String test12;
 }
